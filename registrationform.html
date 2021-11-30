@@ -1,0 +1,116 @@
+<!DOCTYPE html>    
+<html>    
+<head>    
+    <title>Registration Form</title>    
+    <style>    
+        body,form{    
+            font-family: Calibri;
+            font-size: 20px;    
+        }     
+        h2{
+            background-color:  rgb(167, 209, 236);
+        }
+    </style>    
+    <script>    
+        function validate() {    
+            var firstname = document.form.firstname; 
+            var address = document.form.address;  
+            var zipcode = document.form.zipcode;  
+            var state = document.form.state;   
+            var username = document.form.username;
+            var email = document.form.email;
+            var emailExp = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
+    
+            if (firstname.value.length <= 0) {    
+                alert("Firstname is required");    
+                firstname.focus();    
+                return false;    
+            }  
+            if (address.value.length <= 0) {    
+                alert("Address is required");    
+                address.focus();    
+                return false;    
+            }       
+            if (zipcode.value.length <= 0) {    
+                alert("Zipcode is required");    
+                zipcode.focus();    
+                return false;    
+            }    
+            if (state.value == "") {    
+                alert("state is required");    
+                state.focus();    
+                return false;    
+            }    
+            if (username.value.length <6 || username.value.length>8) {
+                alert("enter username between 6-8 characters");
+                username.focus();
+                return false;
+            }   
+            if (email.value.length <= 0) {    
+                alert("Email Id is required");    
+                email.focus();    
+                return false;    
+            }    
+            if (email.value.match(emailExp)) {
+                return true;
+            }
+            else if(email.value.match != emailExp) {
+                alert("Enter proper email-id");
+                email.focus();
+                return false;
+            }
+            return false;
+        }    
+    </script>    
+</head>    
+<body>     
+    <form method="" action="resgister.html" name="form" onsubmit="return validate()">    
+        <h2>Display:</h2>    
+        <table style="display: flex;background-color:rgb(121, 173, 202);">    
+            <tr>    
+                <td>First Name: </td>    
+                <td><input type="text" name="firstname"></td>    
+            </tr>     
+            <tr>    
+                <td>Address: </td>    
+                <td><input type="textarea" size="50" name="address"></td>    
+            </tr>  
+            <tr>    
+                <td>Zip Code: </td>    
+                <td><input type="number" name="zipcode"></td> 
+            </tr>        
+            <tr>    
+            <td>State: </td>    
+                <td>    
+                    <select name="state">    
+                        <option></option>  
+                        <option>Andhra Pradesh</option> 
+                        <option>Arunachal Pradesh</option>   
+                        <option>Bihar</option>   
+                        <option>Chattisgarh</option>
+                        <option>Delhi</option> 
+                        <option>Karnataka</option> 
+                        <option>Kerala</option>
+                        <option>Madhya Pradesh</option>
+                        <option>Punjab</option>
+                        <option>Telangana</option> 
+                        <option>Tamil Nadu</option> 
+                        <option>Uttar Pradesh</option> 
+                    </select>    
+                </td>    
+            </tr>    
+            <tr>
+                <td>Username<br>(6-8 characters): </td>
+                <td><input type="text" name="username"></td>
+            </tr>
+            <tr>    
+                <td>Email: </td>    
+                <td><input type="text" name="email" placeholder="john@gmail.com"></td> 
+            </tr>
+            <tr>    
+                <td><input type="submit" name="submit" value="Check Form"></td>  
+            </tr>             
+        </table>    
+    </form>    
+</body>    
+</html>
